@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HW2_PizzaOrder</string>
+    <string name="pizza_order">Pizza Order</string>
+    <string name="choose_your_pizza">Choose your pizza:</string>
 </resources>
