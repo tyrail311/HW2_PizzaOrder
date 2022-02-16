@@ -2,4 +2,21 @@
     <string name="app_name">HW2_PizzaOrder</string>
     <string name="pizza_order">Pizza Order</string>
     <string name="choose_your_pizza">Choose your pizza:</string>
+    <string name="extra_cheese">Extra cheese</string>
+    <string name="med_pizza">Med ($9.99)</string>
+    <string name="lrg_pizza">Lrg ($13.99)</string>
+    <string name="choose_pizza_toppings">Choose pizza toppings ($1.69 each):</string>
+    <string name="mushrooms">Mushrooms</string>
+    <string name="total_price">Total Price: $0.00</string>
+    <string name="xlrg_pizza">XLrg ($15.99)</string>
+    <string name="switch_text">no, $0.00</string>
+    <string name="delivery">Delivery?</string>
+    <string name="logo">logo</string>
+    <string name="pizza_type_description">pizza type gets displayed</string>
+    <string name="onions">Onions</string>
+    <string name="spinach">Spinach</string>
+    <string name="broccoli">Broccoli</string>
+    <string name="black_olives">Black olives</string>
+    <string name="tomatoes">Tomatoes</string>
+    <string name="choose_pizza_size">Choose pizza size:</string>
 </resources>

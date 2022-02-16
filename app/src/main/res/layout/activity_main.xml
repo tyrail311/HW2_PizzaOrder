@@ -7,15 +7,15 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logo"
         android:layout_width="74dp"
         android:layout_height="47dp"
         android:background="#FF000E"
+        android:contentDescription="@string/logo"
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_local_pizza_24"
-        tools:ignore="ImageContrastCheck"
-        android:contentDescription="TODO" />
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/title"
@@ -24,28 +24,30 @@
         android:layout_marginTop="4dp"
         android:text="@string/pizza_order"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo2"
         android:layout_width="74dp"
         android:layout_height="47dp"
         android:background="#FF000E"
+        android:contentDescription="@string/logo"
         app:layout_constraintEnd_toStartOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_local_pizza_24"
-        tools:ignore="ImageContrastCheck"
-        android:contentDescription="TODO" />
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/pizza_choice_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:text="@string/choose_your_pizza"
+        android:textColor="#020202"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,12 +58,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:text="Choose pizza size:"
+        android:layout_marginTop="8dp"
+        android:text="@string/choose_pizza_size"
+        android:textColor="#020202"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/image_pizza" />
 
     <TextView
         android:id="@+id/topping_choice_textView"
@@ -69,59 +72,64 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="7dp"
-        android:text="Choose pizza toppings ($1.69 each):"
+        android:text="@string/choose_pizza_toppings"
+        android:textColor="#020202"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/size_radioGroup" />
 
     <TextView
         android:id="@+id/topping_choice_textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="144dp"
-        android:text="Delivery?"
+        android:layout_marginTop="12dp"
+        android:text="@string/delivery"
+        android:textColor="#020202"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/toppings2_radioGroup" />
 
     <TextView
         android:id="@+id/user_pizza_choice_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="308dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="233dp"
-        android:layout_height="44dp"
+        android:id="@+id/pizza_spinner"
+        android:layout_width="183dp"
+        android:layout_height="48dp"
         android:layout_marginStart="90dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="88dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pizza_choice_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/pizza_choice_textView"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="234dp"
-        android:layout_height="172dp"
-        android:layout_marginStart="88dp"
+        android:id="@+id/image_pizza"
+        android:layout_width="182dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="112dp"
         android:layout_marginTop="2dp"
+        android:contentDescription="@string/pizza_type_description"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/pizza_spinner"
         app:srcCompat="@drawable/pepperoni" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="412dp"
-        android:layout_height="50dp"
+        android:id="@+id/size_radioGroup"
+        android:layout_width="396dp"
+        android:layout_height="49dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,80 +137,127 @@
         app:layout_constraintTop_toBottomOf="@+id/size_choice_textView">
 
         <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="137dp"
+            android:id="@+id/med_pizza_radioButton"
+            android:layout_width="131dp"
             android:layout_height="wrap_content"
-            android:text="Med ($9.99)" />
+            android:checked="false"
+            android:onClick="selectSize"
+            android:text="@string/med_pizza" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/lrg_pizza_radioButton"
             android:layout_width="137dp"
             android:layout_height="wrap_content"
-            android:text="Lrg ($13.99)" />
+            android:onClick="selectSize"
+            android:text="@string/lrg_pizza" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="137dp"
+            android:id="@+id/xlarge_pizza_radioButton"
+            android:layout_width="129dp"
             android:layout_height="wrap_content"
-            android:text="XLrg ($15.99)" />
+            android:onClick="selectSize"
+            android:text="@string/xlrg_pizza" />
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/toppings_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="479dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topping_choice_textView">
 
-        <RadioButton
-            android:id="@+id/radioButton7"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/extra_cheese"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Extra cheese" />
+            android:layout_weight="1"
+            android:onClick="selectToppings"
+            android:text="@string/extra_cheese" />
 
-        <RadioButton
-            android:id="@+id/radioButton6"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/mushrooms"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mushrooms" />
+            android:layout_weight="1"
+            android:onClick="selectToppings"
+            android:text="@string/mushrooms" />
 
-        <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/onions"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Onions" />
+            android:layout_weight="1"
+            android:onClick="selectToppings"
+            android:text="@string/onions" />
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/spinach"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Spinach" />
+            android:layout_weight="1"
+            android:onClick="selectToppings"
+            android:text="@string/spinach" />
+
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/toppings2_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="527dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toppings_radioGroup">
 
-        <RadioButton
-            android:id="@+id/radioButton8"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/broccoli"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Broccoli" />
+            android:layout_weight="1"
+            android:onClick="selectToppings"
+            android:text="@string/broccoli" />
 
-        <RadioButton
-            android:id="@+id/radioButton9"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/black_olives"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Black olives" />
+            android:layout_weight="1"
+            android:onClick="selectToppings"
+            android:text="@string/black_olives" />
 
-        <RadioButton
-            android:id="@+id/radioButton10"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/tomatoes"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tomatoes" />
+            android:layout_weight="1"
+            android:onClick="selectToppings"
+            android:text="@string/tomatoes" />
+
     </RadioGroup>
+
+    <Switch
+        android:id="@+id/delivery_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:minHeight="48dp"
+        android:text="@string/switch_text"
+        app:layout_constraintStart_toEndOf="@+id/topping_choice_textView2"
+        app:layout_constraintTop_toBottomOf="@+id/toppings2_radioGroup" />
+
+    <TextView
+        android:id="@+id/total_price_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/total_price"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topping_choice_textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
