@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private val lrgSizePrice = 13.99
     private val xlrgSizePrice = 15.99
     private val deliveryPrice = 2.00
-    val pizzaList = listOf("Pepperoni", "Margheritta", "Hawaiian", "BBQ Chicken")
+    private val pizzaList = listOf("Pepperoni", "Margheritta", "Hawaiian", "BBQ Chicken")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     fun delivery(view: View) {
         val deliveryPriceNumFormatted: Double = String.format("%.2f", deliveryPrice).toDouble()
-        if (delivery_switch.isEnabled) {
+        if (delivery_switch.isChecked) {
             delivery_switch.text = "Yes, $$deliveryPriceNumFormatted"
             total += deliveryPrice
         } else {
