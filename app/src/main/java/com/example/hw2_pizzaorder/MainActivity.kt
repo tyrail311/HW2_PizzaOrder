@@ -8,11 +8,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private var total = 0.00
+    private var totalWithTax = 0.00
+    private var totalToppingPrice = 0.00
+    private var totalTaxPrice = 0.00
+    private var tempPrice = 0.00
     private val toppingPrice = 1.69
     private val medSizePrice = 9.99
     private val lrgSizePrice = 13.99
     private val xlrgSizePrice = 15.99
-    private var tempPrice = 0.00
+    private val deliveryPrice = 2.00
     val pizzaList = listOf("Pepperoni", "Margheritta", "Hawaiian", "BBQ Chicken")
 
 
@@ -53,47 +57,60 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         displayPrice()
     }
 
-    fun selectSize(view: View)
-    {
+    fun selectSize(view: View) {
         when (view) {
-            med_pizza_radioButton -> {
-                addSizeCost(medSizePrice, tempPrice)
-                tempPrice = medSizePrice
-            }
-            lrg_pizza_radioButton -> {
-                addSizeCost(lrgSizePrice, tempPrice)
-                tempPrice = lrgSizePrice
-            }
-            else -> {
-                addSizeCost(xlrgSizePrice, tempPrice)
-                tempPrice = xlrgSizePrice
-            }
+            med_pizza_radioButton -> addSizeCost(medSizePrice, tempPrice)
+            lrg_pizza_radioButton -> addSizeCost(lrgSizePrice, tempPrice)
+            else -> addSizeCost(xlrgSizePrice, tempPrice)
         }
         displayPrice()
     }
-    private fun addSizeCost(sizePrice : Double, temp: Double)
-    {
-                total -= temp
-                tempPrice = sizePrice
-                total += sizePrice
+
+    fun delivery(view: View) {
+        val deliveryPriceNumFormatted: Double = String.format("%.2f", deliveryPrice).toDouble()
+        if (delivery_switch.isEnabled) {
+            delivery_switch.text = "Yes, $$deliveryPriceNumFormatted"
+            total += deliveryPrice
+        } else {
+            delivery_switch.text = "No, $0.00"
+            total -= deliveryPrice
+        }
+        displayPrice()
     }
-    private fun addToppingCost(view : View)
-    {
+
+    private fun addSizeCost(sizePrice: Double, temp: Double) {
+        total -= temp
+        tempPrice = sizePrice
+        total += sizePrice
+    }
+
+    private fun addToppingCost(view: View) {
         if (view is CheckBox) {
             val checked: Boolean = view.isChecked
-            if (checked)
+            if (checked) {
                 total += toppingPrice
-            else
+                totalToppingPrice += toppingPrice
+            } else {
                 total -= toppingPrice
+                totalToppingPrice -= toppingPrice
+            }
         }
     }
-    private fun setPizzaChoiceText(selection : String)
-    {
+
+    private fun setPizzaChoiceText(selection: String) {
         user_pizza_choice_textView.text = selection
     }
-    private fun displayPrice()
-    {
-        val totalPriceNumFormatted:Double = String.format("%.2f", total).toDouble()
-        total_price_textView.text = "Total Cost: $$totalPriceNumFormatted"
+
+    private fun displayPrice() {
+        totalTaxPrice = total * .0635
+        totalWithTax = total + totalTaxPrice
+        val totalPriceNumFormatted: Double = String.format("%.2f", total).toDouble()
+        val totalTaxPriceNumFormatted: Double = String.format("%.2f", totalTaxPrice).toDouble()
+        val totalToppingPriceNumFormatted: Double = String.format("%.2f", totalToppingPrice).toDouble()
+        val totalWithTaxPriceNumFormatted: Double = String.format("%.2f", totalWithTax).toDouble()
+        total_price_textView.text = "Total Price: $$totalPriceNumFormatted"
+        tax_price_textView.text = "Taxes: $$totalTaxPriceNumFormatted"
+        toppings_price_textView.text = "Toppings: $$totalToppingPriceNumFormatted"
+        total_price_with_tax_textView.text = "Total Price (Taxes included): $$totalWithTaxPriceNumFormatted"
     }
 }

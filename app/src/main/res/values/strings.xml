@@ -9,7 +9,7 @@
     <string name="mushrooms">Mushrooms</string>
     <string name="total_price">Total Price: $0.00</string>
     <string name="xlrg_pizza">XLrg ($15.99)</string>
-    <string name="switch_text">no, $0.00</string>
+    <string name="switch_text">No, $0.00</string>
     <string name="delivery">Delivery?</string>
     <string name="logo">logo</string>
     <string name="pizza_type_description">pizza type gets displayed</string>
@@ -19,4 +19,7 @@
     <string name="black_olives">Black olives</string>
     <string name="tomatoes">Tomatoes</string>
     <string name="choose_pizza_size">Choose pizza size:</string>
+    <string name="taxes">Taxes: $0.00</string>
+    <string name="total_price_taxes_included">Total Price (Taxes included): $0.00</string>
+    <string name="toppings">Toppings: $0.00</string>
 </resources>
